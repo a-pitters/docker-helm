@@ -1,0 +1,13 @@
+variables:
+  HELM_VERSION: 2.9.1
+
+image: docker:latest
+
+before_script:
+  - docker login -u $DOCKER_USER -p $DOCKER_PASS
+
+build-image:
+  stage: build
+  script:
+   - docker build --build-arg helm_version=$HELM_VERSION -t $DOCKER_USER/docker-helm:$HELM_VERSION .
+   - docker push $DOCKER_USER/helm:$HELM_VERSION
