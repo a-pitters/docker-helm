@@ -3,8 +3,11 @@ variables:
 
 image: docker:latest
 
+services:
+  - docker:dind
+
 before_script:
-  - docker login -u $DOCKER_USER -p $DOCKER_PASS
+  - echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
 
 build-image:
   stage: build
