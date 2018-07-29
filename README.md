@@ -5,4 +5,8 @@ __No kubectl!__
 
 Use this in CI for the `helm template` function.
 
+```
+helm template ./my-chart-directory > my-kubernetes-resources.yaml
+```
+
 [DockerHub](https://hub.docker.com/r/apitters/docker-helm/)
